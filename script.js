@@ -41,7 +41,7 @@ function getRank(urlOrigem, login) {
 }
 
 
-function getUser(url) {    
+function getUser(url) { 
     fetch(url)
         .then(res => res.text())
         .then(text => {
@@ -60,6 +60,7 @@ function getUser(url) {
         })
         .catch(function(err) {
             console.info(err);
+            document.getElementById('login').innerHTML = '<a href="https://cursos.alura.com.br/" target="_blank" id="link">Login Alura</a>';
             document.getElementById('rank').innerHTML = '<br><span class="red">NÃO LOGADO!</span>';
         });
 }

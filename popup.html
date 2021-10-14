@@ -22,9 +22,16 @@
         span {
             font-weight: bold;
         }
-        img {
+        .logo {
             width: 24px;
             margin-bottom: -5px;
+            margin-right: 10px;
+            animation:spin 4s linear infinite;
+        }
+        @keyframes spin { 
+            100% { 
+                transform:rotate(360deg); 
+            } 
         }
         .red {
             font-size: 14px;
@@ -37,14 +44,14 @@
         }  
         a:hover {
             color: blue;
-        }   
+        }         
     </style>
 </head>
 <body>
-    <h3><img src="icon.png" alt="">
+    <h3><img class="logo" src="icon.png" alt="">
         <a href="https://cursos.alura.com.br/" target="_blank" id="link">Ranking Alura</a>
     </h3>
-    <h4 id="login">Usuário: <span id="usuario"></span></h4>
+    <h4 id="login">Usuário: <span id="usuario" >&ensp;Carregando...</span></h4>
     <div id="rank" >
         <div>
             <a href="https://cursos.alura.com.br/rank" target="_blank"          >Geral:   </a>
