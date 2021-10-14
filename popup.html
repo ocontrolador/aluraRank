@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>    
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: silver;
+        }
+        #rank {
+            box-sizing: content-box;  
+            width: 140px;
+            height: 50px;
+            padding: 10px;  
+            border: 2px solid blue;
+        }
+        div {
+            font-size: 12px;
+        }
+        span {
+            font-weight: bold;
+        }
+        img {
+            width: 24px;
+            margin-bottom: -5px;
+        }
+        .red {
+            font-size: 14px;
+            color: red;
+            text-shadow: 0.1em 0.1em 0.2em black;            
+        }  
+        a {
+            text-decoration: none;
+            color: black;
+        }  
+        a:hover {
+            color: blue;
+        }   
+    </style>
+</head>
+<body>
+    <h3><img src="icon.png" alt="">
+        <a href="https://cursos.alura.com.br/" target="_blank" id="link">Ranking Alura</a>
+    </h3>
+    <h4 id="login">Usuário: <span id="usuario"></span></h4>
+    <div id="rank" >
+        <div>
+            <a href="https://cursos.alura.com.br/rank" target="_blank"          >Geral:   </a>
+            <span id="full"></span>
+        </div>
+        <div>
+            <a href="https://cursos.alura.com.br/rank/monthly" target="_blank"  >Mensal:  </a>
+            <span id="monthly"></span></div>
+        <div>
+            <a href="https://cursos.alura.com.br/rank/weekly" target="_blank"   >Semanal: </a>
+            <span id="weekly"></span>
+        </div>
+        <div>Hoje: <span id="day"></span></div>
+        <!-- <div>Total: <span id="total"></span></div> -->
+    </div>    
+</body>
+<script src="script.js"></script>
+</html>
