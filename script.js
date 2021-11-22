@@ -14,7 +14,7 @@ function getRank(urlOrigem, login) {
             .then(fragment => {
                 if (tipo == 'day') {
                     let hoje = fragment
-                        .querySelector('.pointsGrid-cell:last-child > span > strong')
+                        .querySelector('.pointsGrid-cell:first-child > span > strong')
                         .innerText;
                     let total = fragment
                         .querySelector('.profile-info-item-points > strong')
