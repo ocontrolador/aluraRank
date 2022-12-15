@@ -16,10 +16,15 @@ function getRank(urlOrigem, login) {
                     let hoje = fragment
                         .querySelector('.pointsGrid-cell:last-child > span > strong')
                         .innerText;
-                    let total = fragment
-                        .querySelector('.profile-info-item-points > strong')
-                        .innerText;
-                    document.getElementById(tipo).innerText = hoje;
+                    let hojeFormatado =  new Intl.NumberFormat('pt-BR').format(parseInt( hoje ));
+                    let pontos = fragment
+                        .querySelectorAll('.pointsGrid-cell--high-score > span > strong');
+                    let media = calcularMedia(pontos);
+                    // let total = fragment
+                    //     .querySelector('.profile-info-item-points > strong')
+                    //     .innerText;
+                    document.getElementById(tipo).innerText = hojeFormatado + " pontos";
+                    document.getElementById('media').innerText = media;
                     // document.getElementById('total').innerText = total.replace(/(\d{3})?(\d{3})?/, "$1.$2");
                 } else {
                     let ranking = fragment
@@ -31,7 +36,7 @@ function getRank(urlOrigem, login) {
                         .innerText
                         .replace(/[\r\n ]/g, '')
                         .replace(',','.'); 
-                    document.getElementById(tipo).innerHTML = `<a href="https://cursos.alura.com.br/user/${login}/rank/${(tipo == 'full')? '': tipo}" target="_blank">${pontos} (${ranking})</a>`;
+                    document.getElementById(tipo).innerHTML = `<a href="https://cursos.alura.com.br/user/${login}/rank/${tipo}" target="_blank">${pontos} (${ranking})</a>`;
                 }
             })
             .catch(function(err) {
@@ -40,6 +45,16 @@ function getRank(urlOrigem, login) {
     });
 }
 
+function calcularMedia(pontos) {
+    let soma = 0;
+    let total = pontos.length;
+    pontos.forEach( ponto => {
+        soma += parseInt(ponto.innerText);
+        //console.log(ponto);
+    });
+    let numeroFormatado = new Intl.NumberFormat('pt-BR').format(Math.round( soma/ total ));
+    return numeroFormatado;
+}
 
 function getUser(url) { 
     fetch(url)
