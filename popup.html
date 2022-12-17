@@ -80,6 +80,10 @@
             background-color: darkblue;
             transition: 0.2s
         }
+        .esconde {
+            display: none
+            /* visibility: hidden; */
+        }
     </style>
 </head>
 
@@ -89,7 +93,7 @@
     </h3>
     <h4 id="login"> <a href="https://cursos.alura.com.br/dashboard" target="_blank">
             Usuário: <span id="usuario">&ensp;Carregando...</span></a>&ensp;
-        <button class="button" id="continuar" title="Continuar de onde parou"> ► </button>
+        <button class="button esconde" id="continuar" title="Continuar de onde parou"> ► </button>
     </h4>
     <div id="rank">
         <div title="Sua posição geral">

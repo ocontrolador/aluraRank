@@ -15,8 +15,8 @@ function getRank(urlOrigem, login) {
                 if (tipo == 'day') {
                     let hoje = fragment
                         .querySelector('.pointsGrid-cell:last-child > span > strong')
-                        .innerText;
-                    let hojeFormatado = (hoje) ? new Intl.NumberFormat('pt-BR').format(parseInt(hoje)) : 0;
+                    hoje = (hoje)? parseInt(hoje.innerText) : 0;    
+                    let hojeFormatado = new Intl.NumberFormat('pt-BR').format(hoje);
                     let pontos = fragment
                         .querySelectorAll('.pointsGrid-cell--high-score > span > strong');
                     let media = calcularMedia(pontos);
@@ -66,6 +66,7 @@ function Continuar() {
             curso = ( cursoPosicao != -1)? curso.substring(cursoPosicao) : '';
             link += curso;
             botaoContinuar.addEventListener('click', () => window.open(link, '_blank'));
+            botaoContinuar.classList.remove('esconde');
         })
         .catch(function (err) {
             console.info(err);
