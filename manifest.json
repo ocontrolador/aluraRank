@@ -2,7 +2,7 @@
     "manifest_version":2,
     "name" : "Alura Rank",
     "description" : "Monsta seu Ranking",
-    "version" : "0.4.5",
+    "version" : "0.4.11",
     "author": "Luis Dias",
     "browser_action": {
         "default_title": "Ranking",
@@ -11,6 +11,5 @@
     },
     "permissions": [        
         "*://*.alura.com.br/"
-    ]
-    
+    ]    
 }

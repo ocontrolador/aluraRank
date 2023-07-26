@@ -1,3 +1,7 @@
+//const tituloAlura = window.document.querySelector('.banner-title');
+
+//tituloAlura.innerText = 'SAID'
+
 let urlAlura = 'https://cursos.alura.com.br/dashboard';
 
 function getRank(urlOrigem, login) {
@@ -13,12 +17,18 @@ function getRank(urlOrigem, login) {
             })
             .then(fragment => {
                 if (tipo == 'day') {
-                    let hoje = fragment
-                        .querySelector('.pointsGrid-cell:last-child > span > strong')
-                    hoje = (hoje)? parseInt(hoje.innerText) : 0;    
+                    // let hoje = fragment
+                    //     .querySelector('.pointsGrid-cell:last-child > span > strong')
+                    // hoje = (hoje)? parseInt(hoje.innerText) : 0;    
+                    // let hojeFormatado = new Intl.NumberFormat('pt-BR').format(hoje);
+                    let pontosData = [
+                        fragment.querySelector('.pointsGrid-cell:first-child > span').innerText,
+                        fragment.querySelector('.pointsGrid-cell:last-child > span').innerText
+                    ]; 
+                    let hoje = pontosHoje(pontosData);
                     let hojeFormatado = new Intl.NumberFormat('pt-BR').format(hoje);
                     let pontos = fragment
-                        .querySelectorAll('.pointsGrid-cell--high-score > span > strong');
+                        .querySelectorAll('.pointsGrid-cell > span > strong');
                     let media = calcularMedia(pontos);
                     document.getElementById(tipo).innerText = hojeFormatado;
                     document.getElementById('media').innerText = media;
@@ -44,12 +54,26 @@ function getRank(urlOrigem, login) {
 function calcularMedia(pontos) {
     let soma = 0;
     let total = pontos.length;
-    pontos.forEach(ponto => soma += parseInt(ponto.innerText));
+    pontos.forEach(ponto => soma += (ponto.innerText)? parseInt(ponto.innerText): 0);
     let numeroFormatado = new Intl.NumberFormat('pt-BR').format(Math.round(soma / total));
     return numeroFormatado;
 }
 
-function Continuar() {
+function pontosHoje(data){    
+    let hoje = new Date().toLocaleDateString('pt-BR');
+    let dataPattern = /\d{2}\/\d{2}\/\d{4}/;
+    let pontosPattern = /GANHOU (\d+)/i;
+    let pontos = 0;
+    if ( hoje == data[0].match(dataPattern)[0])
+        if ( data[0].match(pontosPattern) != null ) 
+            return data[0].match(pontosPattern)[1];
+        else return pontos;
+    if ( data[1].match(pontosPattern) != null ) 
+        return data[1].match(pontosPattern)[1];
+    return pontos;
+}
+
+function ContinuarCurso() {
     let url = 'https://cursos.alura.com.br/dashboard';
     let botaoContinuar = document.getElementById("continuar");
     fetch(url)
@@ -61,12 +85,16 @@ function Continuar() {
         })
         .then(fragment => {
             let link = 'https://cursos.alura.com.br/';
-            let curso = fragment.querySelector('.big-card__button').href;
-            let cursoPosicao = curso.indexOf('course');
-            curso = ( cursoPosicao != -1)? curso.substring(cursoPosicao) : '';
-            link += curso;
+            let cursoNome = fragment.querySelector('.big-card__name');
+            cursoNome = (cursoNome)? cursoNome.innerText: "Contitunar o curso";
+            cursoNome = cursoNome.replace(': ',':\n');
+            let cursoHref = fragment.querySelector('.big-card__button').href;
+            let cursoPosicao = cursoHref.indexOf('course');
+            cursoHref = ( cursoPosicao != -1)? cursoHref.substring(cursoPosicao) : '';
+            link += cursoHref;
             botaoContinuar.addEventListener('click', () => window.open(link, '_blank'));
             botaoContinuar.classList.remove('esconde');
+            botaoContinuar.title = cursoNome;
         })
         .catch(function (err) {
             console.info(err);
@@ -85,10 +113,11 @@ function getUser(url) {
             let login = fragment
                 .querySelector('[data-username]').getAttribute("data-username");
             let usuario = fragment
-                .querySelectorAll('.profile-info-name')[1].innerText;
+                .querySelector('[class$=avatar]').alt.substring(8);
+                //.querySelector('.profile__info-name').innerText;
             document.getElementById('usuario').innerText = usuario;
             document.getElementById('link').href = `https://cursos.alura.com.br/user/${login}`;
-            Continuar();
+            ContinuarCurso();
             getRank(`https://cursos.alura.com.br/user/${login}`, login);
         })
         .catch(function (err) {
