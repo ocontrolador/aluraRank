@@ -1,7 +1,15 @@
-# Visualiza seu ranking na Alura Cursos
-## Extension Chrome
+# Alura Rank
+
+Visualiza seu ranking na Alura Cursos
+
+![Imagem Alura Rank](alura.png)
+
 ## Pontuação cursos Alura
-<https://cursos.alura.com.br/>
+
+Fonte: https://cursos.alura.com.br/
+
+
+## Descrição
 
 + Para você que é uma pessoa competitiva e /ou gosta de acompanhar seu progresso nos estudos
 + Você poderá ver como sua posição Geral, Mensal e Semanal, além de ver seus pontos do dia
@@ -11,8 +19,21 @@
 + Não perca seu objetivo e mantenha o foco
 + Seja sua melhor versão
 + Bons estudos
+
 + **Notas:** 
 1. Está extensão não foi produzida pela Alura Cursos. 
 2. Sou apenas um entusiasta e um aluno dedicado.
 3. Nenhum dado é coletado
 4. Você tem que está logado na Alura Cursos
+
+## Repositório
+
+Github: https://github.com/ocontrolador/aluraRank.git
+
+## Extensão Chrome
+
+<a href="https://chromewebstore.google.com/detail/alura-rank/kjeinnlomeabhpphifhofhihapfkpcip?hl=pt-BR&utm_source=ext_sidebar"><div><img src="https://lh3.googleusercontent.com/L_8RpQpmaBmKM8dFgrXffe-KUylD9wNd083ghvYAoRX5MuTqD-FlG7SPIR2WONBgcMa6m1XPEsKtitJVz1QoQlb4=s60" alt="Imagem do logotipo de Alura Rank">Alura Rank</h1></div></a>
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT

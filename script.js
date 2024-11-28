@@ -1,7 +1,3 @@
-//const tituloAlura = window.document.querySelector('.banner-title');
-
-//tituloAlura.innerText = 'SAID'
-
 let urlAlura = 'https://cursos.alura.com.br/dashboard';
 
 function getRank(urlOrigem, login) {
