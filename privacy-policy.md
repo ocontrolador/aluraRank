@@ -1,4 +1,3 @@
-```markdown
 # Privacy Policy for Alura Rank Extension
 
 ## Introduction
@@ -41,4 +40,4 @@ For any questions or concerns regarding this Privacy Policy, please contact us a
 ---
 
 This policy ensures transparency and accountability in the handling of user data, aligning with the principles of privacy and security.
-```
+
