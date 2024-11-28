@@ -34,6 +34,11 @@ Github: https://github.com/ocontrolador/aluraRank.git
 
 [![Imagem do logotipo de Alura Rank](https://lh3.googleusercontent.com/L_8RpQpmaBmKM8dFgrXffe-KUylD9wNd083ghvYAoRX5MuTqD-FlG7SPIR2WONBgcMa6m1XPEsKtitJVz1QoQlb4=s60) Alura Rank](https://chromewebstore.google.com/detail/alura-rank/kjeinnlomeabhpphifhofhihapfkpcip)
 
+# Privacidade 
+
+[Privacy-Policy](privacy-policy.md)
+
+
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT
