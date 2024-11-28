@@ -32,7 +32,7 @@ Github: https://github.com/ocontrolador/aluraRank.git
 
 ## Extensão Chrome
 
-<a href="https://chromewebstore.google.com/detail/alura-rank/kjeinnlomeabhpphifhofhihapfkpcip?hl=pt-BR&utm_source=ext_sidebar"><div><img src="https://lh3.googleusercontent.com/L_8RpQpmaBmKM8dFgrXffe-KUylD9wNd083ghvYAoRX5MuTqD-FlG7SPIR2WONBgcMa6m1XPEsKtitJVz1QoQlb4=s60" alt="Imagem do logotipo de Alura Rank">Alura Rank</h1></div></a>
+[![Imagem do logotipo de Alura Rank](https://lh3.googleusercontent.com/L_8RpQpmaBmKM8dFgrXffe-KUylD9wNd083ghvYAoRX5MuTqD-FlG7SPIR2WONBgcMa6m1XPEsKtitJVz1QoQlb4=s60) Alura Rank](https://chromewebstore.google.com/detail/alura-rank/kjeinnlomeabhpphifhofhihapfkpcip)
 
 ## Licença
 
