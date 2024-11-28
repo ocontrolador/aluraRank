@@ -17,10 +17,6 @@ function getRank(urlOrigem, login) {
             })
             .then(fragment => {
                 if (tipo == 'day') {
-                    // let hoje = fragment
-                    //     .querySelector('.pointsGrid-cell:last-child > span > strong')
-                    // hoje = (hoje)? parseInt(hoje.innerText) : 0;    
-                    // let hojeFormatado = new Intl.NumberFormat('pt-BR').format(hoje);
                     let pontosData = [
                         fragment.querySelector('.pointsGrid-cell:first-child > span').innerText,
                         fragment.querySelector('.pointsGrid-cell:last-child > span').innerText
@@ -28,10 +24,15 @@ function getRank(urlOrigem, login) {
                     let hoje = pontosHoje(pontosData);
                     let hojeFormatado = new Intl.NumberFormat('pt-BR').format(hoje);
                     let pontos = fragment
-                        .querySelectorAll('.pointsGrid-cell > span > strong');
-                    let media = calcularMedia(pontos);
+                        .querySelectorAll('.profile-title-activity + .pointsGrid > .pointsGrid-cell > span > strong');
+                    // .querySelectorAll('.pointsGrid-cell > span > strong');
+                    let media = pontos.length? calcularMedia(pontos) : 0;
+                    let diasEstudados = pontos.length;
+                    console.log('Pontos',pontos);
+                    // insere no html
                     document.getElementById(tipo).innerText = hojeFormatado;
                     document.getElementById('media').innerText = media;
+                    document.getElementById('diasEstudo').innerText = `${diasEstudados} de 30` ;
                 } else {
                     let ranking = fragment
                         .querySelector('.rankPage-position-myself > strong')
@@ -53,9 +54,9 @@ function getRank(urlOrigem, login) {
 
 function calcularMedia(pontos) {
     let soma = 0;
-    let total = pontos.length;
+    let total = pontos.length ? pontos.length : 1;
     pontos.forEach(ponto => soma += (ponto.innerText)? parseInt(ponto.innerText): 0);
-    let numeroFormatado = new Intl.NumberFormat('pt-BR').format(Math.round(soma / total));
+  let numeroFormatado = new Intl.NumberFormat('pt-BR').format(Math.round(soma / total));
     return numeroFormatado;
 }
 
